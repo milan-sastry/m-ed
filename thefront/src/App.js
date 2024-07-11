@@ -1,5 +1,6 @@
 import './App.css';
-import Onboarding from './Onboarding';
+import SearchPage from './Search/SearchPage';
+import Onboarding from './Onboarding/Onboarding';
 
 
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function DropdownQuestion({question,options}){
-
+    
     const [selectedOption, setSelectedOption] = useState('');
 
     const handleDropdownChange = (event) => {
@@ -9,7 +9,6 @@ function DropdownQuestion({question,options}){
     };
 
     return (
-
     <div className="flex flex-col w-80 space-y-2">
         <h1>{question}</h1>
         <select

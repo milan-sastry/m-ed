@@ -1,8 +1,8 @@
-import SearchBar from "./SearchBar";
-import Navbar from "./Navbar";
+import SearchBar from "../Components/SearchBar";
+import Navbar from "../Components/Navbar";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { ReactComponent as ConnectIcon } from "./assets/connect.svg";
+import { ReactComponent as ConnectIcon } from "../assets/connect.svg";
 
 function SearchPage() {
   const [mentors, setMentors] = useState([]);

@@ -1,4 +1,3 @@
-
 const SearchBar = () => {
    
     return (

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { ReactComponent as HomeIcon } from './assets/home.svg';
-import { ReactComponent as SearchIcon } from './assets/search.svg';
-import { ReactComponent as TextIcon } from './assets/text.svg';
+import { ReactComponent as HomeIcon } from '../assets/home.svg';
+import { ReactComponent as SearchIcon } from '../assets/search.svg';
+import { ReactComponent as TextIcon } from '../assets/text.svg';
 
 const Navbar = () => {
     const [selectedTab, setSelectedTab] = useState('home');
