@@ -1,10 +1,10 @@
 import React, {useState} from "react";
-import { PasswordErrorText } from "../Components";
+import PasswordErrorText from "../Components/Onboarding/PasswordErrorText";
 import * as FormValidation from '../utils/formChecks';
-import PasswordField  from "../Components/PasswordField";
-import Field from "../Components/Field";
-import ErrorDisplay from "../Components/ErrorDisplay";
-import axios from 'axios';
+import PasswordField  from "../Components/Onboarding/PasswordField";
+import Field from "../Components/Onboarding/Field";
+import ErrorDisplay from "../Components/misc/ErrorDisplay";
+//import axios from 'axios';
 
 
 function CreateAccount({onNextClick}){
@@ -31,9 +31,9 @@ function CreateAccount({onNextClick}){
         try {
             setError(null);
             //throw new Error("intended test error");
-            const response = await axios.post('http://localhost:8000/register/', formData)
+            // const response = await axios.post('http://localhost:8000/register/', formData)
             onNextClick();
-            console.log(response);
+            //console.log(response);
         } catch(error){
             console.error("There was an error!", error);
             setError("uh oh");
@@ -57,22 +57,22 @@ function CreateAccount({onNextClick}){
     }
    
     return (
-        <div className="flex flex-col w-full bg-med-red items-center justify-start pt-2">
+        <div className="onboarding-container">
             <div className={error ? 'absolute w-full h-full top-0 left-0 z-50' : 'hidden'}>
                 <ErrorDisplay callback={callback}/>
             </div>
-            <header className={`flex w-96 justify-center ${error ? 'blur-out' : ''}`}>
-                <h1 className="text-5xl font-bold text-white mb-2">Create Account</h1>
+            <header className={`flex justify-center ${error ? 'blur-out' : ''}`}>
+                <h1 className="text-3xl sm:text-5xl font-bold text-white mb-2">Create Account</h1>
             </header>
-            <form className={`flex flex-col items-center justify-center space-y-4 form-labels form-inputs bg-white w-96 pt-4 pb-4 rounded-3xl ${error ? 'blur-out' : ''}`}>
+            <form className={`onboarding-form form-inputs ${error ? 'blur-out' : ''}`}>
                 <Field name="first_name" value={formData.first_name} placeholder="First Name"  isValid={FormValidation.isValidName(formData.first_name)} handleChange={handleChange}/>
                 <Field name="last_name" value={formData.last_name} placeholder="Last Name" isValid={FormValidation.isValidName(formData.last_name)} handleChange={handleChange}/>
                 <Field name="email" value={formData.email} placeholder="Email" isValid={FormValidation.isEmailValid(formData.email)} handleChange={handleChange}/>
-                <div className="flex flex-col space-y-2">
+                <div className="flex flex-col space-y-2 w-full">
                     <h1>Password</h1>
                     <PasswordField name="password" value={formData.password} isValid={FormValidation.isValidPassword(formData.password)} handleChange={handleChange}/>
                 </div>
-                <div className={FormValidation.isValidPassword(formData.password) ? 'flex flex-col space-y-2':'hidden'}>
+                <div className={FormValidation.isValidPassword(formData.password) ? 'flex flex-col space-y-2 w-full':'hidden'}>
                     <h1>Confirm Password</h1>
                     <PasswordField name="confirmPassword" value={formData.confirmPassword} isValid={FormValidation.validatePasswords(formData.password,formData.confirmPassword)} handleChange={handleChange}/>
 
@@ -81,9 +81,9 @@ function CreateAccount({onNextClick}){
                     {PasswordErrorText(formData.password,formData.confirmPassword)}
                 </div>
                 <button
-                    className={`${isFormFilled() ? 'bg-med-blue' : 'bg-gray-300'} text-white rounded-lg w-80 h-10`}
-                    //onClick={handleSubmit}
-                    onClick={onNextClick}
+                    className={`${isFormFilled() ? 'bg-med-blue' : 'bg-gray-300'} text-white rounded-lg w-full h-10`}
+                    onClick={handleSubmit}
+                    //onClick={onNextClick}
                     type="button"
                     //disabled={!FormValidation.isFormFilled()}
                     >

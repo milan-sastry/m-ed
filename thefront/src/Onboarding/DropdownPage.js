@@ -1,5 +1,5 @@
-import NextBack from '../Components/NextBack';
-import DropdownQuestion from '../Components/DropdownQuestion';
+import NextBack from '../Components/Onboarding/NextBack';
+import DropdownQuestion from '../Components/Onboarding/DropdownQuestion';
 
 function CreateProfile({ onNextClick, onBackClick }) {
 
@@ -11,10 +11,13 @@ function CreateProfile({ onNextClick, onBackClick }) {
     ];
 
     return (
-        <div className="h-screen flex flex-col items-center space-y-2">
+        <div className="onboarding-container">
             
             {/* Dropdown selection */}
-            <div className="flex flex-col items-center border form-labels bg-white space-y-4 rounded-3xl w-96 pb-4 pt-4  mt-4">
+            <header className="flex justify-center">
+                <h1 className="text-3xl sm:text-5xl font-bold text-white mb-2">Dropdown Page</h1>
+            </header>
+            <div className="onboarding-form">
                 <DropdownQuestion question="Gender" options={gender_options} />
                 <DropdownQuestion question="Gender" options={gender_options} />
                 <DropdownQuestion question="Gender" options={gender_options} />

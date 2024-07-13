@@ -1,4 +1,4 @@
-import * as FormValidation from '../utils/formChecks';
+import * as FormValidation from '../../utils/formChecks';
 
 const PasswordErrorText = (password,confirmPassword) => {
 

@@ -1,8 +1,8 @@
-import CreateProfile from "./DropdownPage";
+import DropdownPage from "./DropdownPage";
 import CreateAccount from "./CreateAccount";
 import TagPage from "./TagPage";
 import Finish from "./Finish";
-import ProgressBar from "../Components/ProgressBar";
+import ProgressBar from "../Components/Onboarding/ProgressBar";
 import React, { useState,useEffect } from "react";
 
 function Onboarding() {
@@ -33,7 +33,7 @@ function Onboarding() {
 
     const steps = [
                     <CreateAccount onNextClick={handleNextClick} />, 
-                    <CreateProfile onNextClick={handleNextClick} onBackClick={handleBackClick} />,
+                    <DropdownPage onNextClick={handleNextClick} onBackClick={handleBackClick} />,
                     <TagPage onNextClick={handleNextClick} onBackClick={handleBackClick} />,
                     <Finish onNextClick={handleNextClick} onBackClick={handleBackClick}/>,
                 ];
@@ -42,19 +42,21 @@ function Onboarding() {
                 const translateXValue = step * -100;
 
                 return (
-                    <div className="flex h-screen flex-col justify-start overflow-hidden border-black">
-                        <ProgressBar currentStep={step} totalSteps={steps.length} />
-                        <div 
-                            className=" border-white flex transition-transform duration-500 ease-in-out"
-                            style={{ transform: `translateX(${translateXValue}%)` }}
-                        >
-                            {steps.map((StepComponent, index) => (
-                                <div key={index} className="w-full flex-shrink-0">
-                                    {StepComponent}
-                                </div>
-                            ))}
+                    <div className="flex flex-col justify-start overflow-hidden h-screen">
+                            <div className="flex w-full px-6 sm:px-10">
+                                <ProgressBar currentStep={step} totalSteps={steps.length} />
+                            </div>
+                            <div
+                                className="flex transition-transform duration-500 ease-in-out"
+                                style={{ transform: `translateX(${translateXValue}%)` }}
+                            >
+                                {steps.map((StepComponent, index) => (
+                                    <div key={index} className="max-h-screen w-full flex-shrink-0 flex justify-center">
+                                        {StepComponent}
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    </div>
                 );
 }
 

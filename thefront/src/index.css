@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .form-inputs input {
-    @apply border border-gray-300 w-80 pt-2 pb-2 px-2 rounded-lg hover:bg-slate-100;
+    @apply border border-gray-300 pt-2 pb-2 px-2 rounded-lg hover:bg-slate-100;
   }
 
 .form-labels h1 {
@@ -15,7 +15,29 @@
   }
 
   .blur-out {
-    @apply pointer-events-none blur-md top-0 
-
+    @apply pointer-events-none blur-md top-0; 
   }
+
+  @media (max-width: 530px){
+    .hide {
+      @apply hidden;
+    }
+  }
+
+  .no-wrap {
+    @apply whitespace-nowrap overflow-hidden;
+  }
+
+  .onboarding-container {
+    @apply flex flex-col items-center justify-start pt-4 mx-4 w-full max-w-96 max-h-screen mb-14;
+  }
+
+  .onboarding-form {
+    @apply flex flex-col items-center justify-start space-y-4 form-labels bg-white p-4 rounded-3xl w-full max-h-full overflow-y-scroll;
+  }
+
+  
+
+  
+
 
