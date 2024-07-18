@@ -5,7 +5,7 @@ import axios from "axios";
 
 import SearchCard from "../Components/Search/SearchCard";
 
-function SearchPage() { 
+function SearchPage() {
   const [mentors, setMentors] = useState([]);
 
   useEffect(() => {
@@ -17,17 +17,22 @@ function SearchPage() {
       .catch((error) => console.error("There was an error!", error));
   }, []);
 
-
-
   return (
-    <div className="flex flex-col border border-black bg-slate-50">
-      <SearchBar />
-        <div className="border-green-500 flex flex-col items-center space-y-2 mb-16 px-2 pb-2">
-          {mentors.map((mentor) => (
-            <SearchCard mentor={mentor}/>
-          ))}
-        </div>
+    <div className="flex h-screen max-w-screen">
       <Navbar />
+      <div className=" flex flex-col max-h-full h-full ml-32 w-full min-w-0
+      ">
+          <SearchBar />
+        <div className="flex flex-col items-center min-w-0 z-10 pr-10 overflow-y-scroll divide-neutral-400 divide-y pt-[104px]
+        bg-gradient-to-br from-med-red
+        bg-local
+        "
+        >
+            {mentors.map((mentor) => (
+              <SearchCard mentor={mentor} />
+            ))}
+          </div>
+      </div>
     </div>
   );
 }

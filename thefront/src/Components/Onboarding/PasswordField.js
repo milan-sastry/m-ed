@@ -7,10 +7,10 @@ function PasswordField({name,value,isValid,handleChange}){
     const [passwordView, setPasswordView] = useState(false);
 
     return (
-        <div className="relative flex items-center">
+        <div className="relative flex items-center w-full">
             <input
                 id={name}
-                className={`${isValid ? 'bg-green-100' : 'border-gray-200'} border w-full pr-10`} // Add padding to prevent text from being hidden behind the icon
+                className="w-full pr-10" // Add padding to prevent text from being hidden behind the icon
                 type={passwordView ? 'text' : 'password'}
                 name={name}
                 placeholder={name === "password" ? "Password" : "Confirm Password"}

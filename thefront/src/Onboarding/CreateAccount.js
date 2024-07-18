@@ -2,31 +2,43 @@ import React, {useState} from "react";
 import PasswordErrorText from "../Components/Onboarding/PasswordErrorText";
 import * as FormValidation from '../utils/formChecks';
 import PasswordField  from "../Components/Onboarding/PasswordField";
-import Field from "../Components/Onboarding/Field";
 import ErrorDisplay from "../Components/misc/ErrorDisplay";
-//import axios from 'axios';
+import axios from 'axios';
 
 
 function CreateAccount({onNextClick}){
     const [formData, setFormData] = useState({
         first_name: "",
         last_name:"",
+        username: "",
         email: "",
         password: "",
         confirmPassword: "",
     });
 
     const handleChange = (e) => {
-        console.log(e.target.name, e.target.value);
+        e.target.checkValidity()
         setFormData({
             ...formData,
             [e.target.name]: e.target.value
         });
-        console.log(formData);
+
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        try{
+            setError(null);
+            if (!isValidUsername(formData.username)){
+                setError("Username is already taken");
+                return;
+
+            }
+        } catch(error){
+            console.error("There was an error!", error);
+            setError("uh oh");
+        }
+
         
         try {
             setError(null);
@@ -38,7 +50,7 @@ function CreateAccount({onNextClick}){
             console.error("There was an error!", error);
             setError("uh oh");
         }
-    console.log(formData);
+
     };
 
     const[error, setError] = useState(null);
@@ -52,9 +64,22 @@ function CreateAccount({onNextClick}){
     }
 
     const callback = () => {
-        console.log("callback");
         setError(null);
     }
+
+    const isValidUsername = async (username) => {
+        try{
+            setError(null);
+            const response = await axios.post('http://localhost:8000/check_user_exists/',username);
+            console.log(response);
+            return response.data.exists;
+        }
+        catch{
+            console.error("There was an error!", error);
+            setError("uh oh");
+        }
+        
+    };
    
     return (
         <div className="onboarding-container">
@@ -65,25 +90,28 @@ function CreateAccount({onNextClick}){
                 <h1 className="text-3xl sm:text-5xl font-bold text-white mb-2">Create Account</h1>
             </header>
             <form className={`onboarding-form form-inputs ${error ? 'blur-out' : ''}`}>
-                <Field name="first_name" value={formData.first_name} placeholder="First Name"  isValid={FormValidation.isValidName(formData.first_name)} handleChange={handleChange}/>
-                <Field name="last_name" value={formData.last_name} placeholder="Last Name" isValid={FormValidation.isValidName(formData.last_name)} handleChange={handleChange}/>
-                <Field name="email" value={formData.email} placeholder="Email" isValid={FormValidation.isEmailValid(formData.email)} handleChange={handleChange}/>
+                <h1>First Name</h1>
+                <input name="first_name" type="text" value={formData.first_name} placeholder="First Name" onChange={handleChange}/>
+                <h1>Last Name</h1>
+                <input name="last_name" type='text' value={formData.last_name} placeholder="Last Name" onChange={handleChange}/>
+                <h1>Username</h1>
+                <input name="username" type='text' value={formData.username} placeholder="Username" onChange={handleChange}/>
+                <h1>Email</h1>
+                <input name="email" type='email' value={formData.email} placeholder="Email" onChange={handleChange} requiered/>
                 <div className="flex flex-col space-y-2 w-full">
                     <h1>Password</h1>
-                    <PasswordField name="password" value={formData.password} isValid={FormValidation.isValidPassword(formData.password)} handleChange={handleChange}/>
+                    <PasswordField name="password" value={formData.password} handleChange={handleChange}/>
                 </div>
                 <div className={FormValidation.isValidPassword(formData.password) ? 'flex flex-col space-y-2 w-full':'hidden'}>
                     <h1>Confirm Password</h1>
-                    <PasswordField name="confirmPassword" value={formData.confirmPassword} isValid={FormValidation.validatePasswords(formData.password,formData.confirmPassword)} handleChange={handleChange}/>
-
+                    <PasswordField name="confirmPassword" value={formData.confirmPassword} handleChange={handleChange}/>
                 </div>
-                <div className="flex flex-col space-y-2">
+                <div className="flex flex-col space-y-2 w-full items-center">
                     {PasswordErrorText(formData.password,formData.confirmPassword)}
                 </div>
                 <button
-                    className={`${isFormFilled() ? 'bg-med-blue' : 'bg-gray-300'} text-white rounded-lg w-full h-10`}
+                    className={`${isFormFilled() ? 'bg-med-blue' : 'bg-gray-300'} text-white rounded-lg w-full min-h-10`}
                     onClick={handleSubmit}
-                    //onClick={onNextClick}
                     type="button"
                     //disabled={!FormValidation.isFormFilled()}
                     >

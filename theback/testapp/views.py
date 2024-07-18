@@ -19,10 +19,16 @@ def generate_username(first_name, last_name):
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
+def check_user_exists(request):
+    username = request.data.get('username')
+    return Response({'exists': User.objects.filter(username=username).exists()})
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
 def register(request):
     first_name = request.data.get('first_name')
     last_name = request.data.get('last_name')
-    username = generate_username(first_name, last_name)
+    username = request.data.get('username')
     email = request.data.get('email')
     password = request.data.get('password')
     
@@ -35,12 +41,18 @@ def register(request):
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def login(request):
-    email = request.data.get('email')
+    username = request.data.get('username')
+    print(username)
     password = request.data.get('password')
-    user = authenticate(email=email, password=password)
+    print(password)
+    user = authenticate(username=username, password=password)
+    print(user)
+
     if user is not None:
         auth_login(request, user)
         session_id = request.session.session_key
+        print("good shit")
+        print(session_id)
         return Response({'message': 'Logged in successfully','session_id':session_id})
     else:
         return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)

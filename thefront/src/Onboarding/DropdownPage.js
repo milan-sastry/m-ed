@@ -24,6 +24,15 @@ function CreateProfile({ onNextClick, onBackClick }) {
                 <DropdownQuestion question="Gender" options={gender_options} />
                 <DropdownQuestion question="Gender" options={gender_options} />
                 <DropdownQuestion question="Gender" options={gender_options} />
+                <DropdownQuestion question="Gender" options={gender_options} />
+                <DropdownQuestion question="Gender" options={gender_options} />
+                <DropdownQuestion question="Gender" options={gender_options} />
+                <DropdownQuestion question="Gender" options={gender_options} />
+                <DropdownQuestion question="Gender" options={gender_options} />
+                <DropdownQuestion question="Gender" options={gender_options} />
+                <DropdownQuestion question="Gender" options={gender_options} />
+                <DropdownQuestion question="Gender" options={gender_options} />
+                <DropdownQuestion question="Gender" options={gender_options} />
                 <NextBack onBackClick={onBackClick} onNextClick={onNextClick} />
             </div>
            

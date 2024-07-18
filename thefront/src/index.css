@@ -3,41 +3,55 @@
 @tailwind utilities;
 
 .form-inputs input {
-    @apply border border-gray-300 pt-2 pb-2 px-2 rounded-lg hover:bg-slate-100;
-  }
+  @apply p-2 rounded-lg bg-gray-200 w-full pl-4 invalid:border-pink-500 invalid:text-pink-500 focus:invalid:border-pink-500 
+ focus:invalid:ring-pink-500 focus:ring-1 border focus:outline-none focus:ring-blue-400 focus:border-blue-400;
+}
 
 .form-labels h1 {
-    @apply text-xl font-bold;
+  @apply text-lg font-bold;
+}
+
+.chip-labels h1 {
+  @apply text-2xl font-bold;
+}
+
+.blur-out {
+  @apply pointer-events-none blur-md top-0;
+}
+
+@media (max-width: 530px) {
+  .hide {
+    @apply hidden;
   }
+}
 
-  .chip-labels h1{
-    @apply text-2xl font-bold;
-  }
+.no-wrap {
+  @apply whitespace-nowrap overflow-hidden;
+}
 
-  .blur-out {
-    @apply pointer-events-none blur-md top-0; 
-  }
+.onboarding-container {
+  @apply flex flex-col items-center justify-start pt-4 mx-4 w-full max-w-96 max-h-screen mb-14;
+}
 
-  @media (max-width: 530px){
-    .hide {
-      @apply hidden;
-    }
-  }
+.onboarding-form {
+  @apply flex flex-col items-start justify-start space-y-2 form-labels bg-white p-4 rounded-3xl w-full max-h-full overflow-y-scroll;
+}
 
-  .no-wrap {
-    @apply whitespace-nowrap overflow-hidden;
-  }
+.next-back button {
+  @apply bg-med-blue text-white rounded-lg w-full h-10;
+}
 
-  .onboarding-container {
-    @apply flex flex-col items-center justify-start pt-4 mx-4 w-full max-w-96 max-h-screen mb-14;
-  }
+.nav-bar-btn {
+  @apply bg-slate-200 w-10 h-10 p-2 rounded-3xl box-content 
+  hover:rounded-xl hover:bg-med-red hover:fill-white
+  transition-all duration-300 ease-linear
+    cursor-pointer shadow-lg ;
+}
 
-  .onboarding-form {
-    @apply flex flex-col items-center justify-start space-y-4 form-labels bg-white p-4 rounded-3xl w-full max-h-full overflow-y-scroll;
-  }
+.gutter {
+  scrollbar-gutter: stable;
+}
 
-  
 
-  
 
 

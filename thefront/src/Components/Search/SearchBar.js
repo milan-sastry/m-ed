@@ -1,18 +1,19 @@
-
 const SearchBar = () => {
-   
-    return (
-            <div className="w-screen h-fit flex flex-col items-center bg-white p-6 border-b border-gray-300 space-y-4">
-                <input 
-                    type="text" 
-                    placeholder="Search..." 
-                    className="h-10 w-7/12 text-lg rounded-full bg-gray-100 pl-4 mt-4 p-6 hover:bg-slate-50" />
-                <div className="flex space-x-6">
-                    <button className="px-4 py-2 bg-med-red text-white rounded-lg">Run Filtered Search</button>
-                    <button className="px-4 py-2 bg-med-red text-white rounded-lg">Sort by</button>
-                </div>
-            </div>
-        );
+  return (
+
+        <div className="flex flex-col h-fit items-center fixed top-0 left-[128px] right-0 z-20 min-w-0 border-b border-gray-200 backdrop-blur-md
+        backdrop-brightness-75 
+        backdrop-contrast-75 
+        backdrop-saturate-150
+        px-20">
+              <input
+                type="text"
+                placeholder="Search..."
+                className="h-14 w-full text-lg text-white rounded-full pl-8 m-6 max-w-2xl bg-transparent border border-gray-300"
+              />
+        </div>
+
+  );
 };
 
 export default SearchBar;
