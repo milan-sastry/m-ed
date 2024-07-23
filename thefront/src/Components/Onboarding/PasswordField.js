@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
-function PasswordField({name,value,isValid,handleChange}){
+function PasswordField({name,value,onKeyDown,handleChange}){
 
     // false = password is hidden, true = password is visible
     const [passwordView, setPasswordView] = useState(false);
@@ -16,6 +16,7 @@ function PasswordField({name,value,isValid,handleChange}){
                 placeholder={name === "password" ? "Password" : "Confirm Password"}
                 value={value}
                 onChange={handleChange}
+                onKeyDown={onKeyDown}
             />
             <button
                 className="absolute right-2" // Position the button on the far right inside the input

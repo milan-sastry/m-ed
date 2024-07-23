@@ -11,7 +11,7 @@ function SearchCard({mentor}){
               key={mentor.id}
               className="flex w-full h-fit  items-center justify-center relative"
             >   
-                <button className="text-white flex flex-row h-full w-full items-center p-4 space-x-4 min-w-0">
+                <button className="border-black border text-white flex flex-row h-full w-fit items-center p-4 space-x-4 min-w-0">
                     <div className="items-center justify-center border border-gray-500 w-16 h-16 md:w-20 md:h-20  flex-none overflow-hidden rounded-full">
                     <img className="object-cover w-full h-full" src={mentor.picture} alt={mentor.name} />
                     </div> 

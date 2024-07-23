@@ -97,7 +97,7 @@ function CreateAccount({onNextClick}){
                 <h1>Username</h1>
                 <input name="username" type='text' value={formData.username} placeholder="Username" onChange={handleChange}/>
                 <h1>Email</h1>
-                <input name="email" type='email' value={formData.email} placeholder="Email" onChange={handleChange} requiered/>
+                <input name="email" type='email' value={formData.email} placeholder="Email" onChange={handleChange} />
                 <div className="flex flex-col space-y-2 w-full">
                     <h1>Password</h1>
                     <PasswordField name="password" value={formData.password} handleChange={handleChange}/>

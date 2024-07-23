@@ -3,10 +3,12 @@ import Navbar from "../Components/misc/Navbar";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import SearchCard from "../Components/Search/SearchCard";
+import FilterPage from "../Components/Search/FilterPage";
+import MentorCard from "../Components/Search/MentorCard";
 
 function SearchPage() {
   const [mentors, setMentors] = useState([]);
+  const [showFilters, setShowFilters] = useState(false);
 
   useEffect(() => {
     axios
@@ -17,21 +19,28 @@ function SearchPage() {
       .catch((error) => console.error("There was an error!", error));
   }, []);
 
+  const handleFilters = () => {
+    setShowFilters(!showFilters);
+
+  }
+
   return (
     <div className="flex h-screen max-w-screen">
+    
       <Navbar />
-      <div className=" flex flex-col max-h-full h-full ml-32 w-full min-w-0
-      ">
-          <SearchBar />
-        <div className="flex flex-col items-center min-w-0 z-10 pr-10 overflow-y-scroll divide-neutral-400 divide-y pt-[104px]
-        bg-gradient-to-br from-med-red
-        bg-local
-        "
-        >
+      <div
+        className="flex flex-col sm:ml-32 mb-20 sm:mb-0 w-full overflow-y-scroll bg-white"
+      >
+        
+        <SearchBar callback={handleFilters}/>
+        <div className=" flex flex-col max-h-full h-full w-full min-w-0 z-20 relative">
+          <div className={`max-w-full min-w-0 px-6 pt-4 pb-4 columns-sm z-10 relative bg-slate-50 ${showFilters ? 'blur-md':''}`}>
             {mentors.map((mentor) => (
-              <SearchCard mentor={mentor} />
+              <MentorCard mentor={mentor} />
             ))}
           </div>
+          <FilterPage show={showFilters} close={handleFilters}/>
+        </div>
       </div>
     </div>
   );
