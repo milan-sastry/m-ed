@@ -7,7 +7,8 @@ import { ReactComponent as Settings } from "../../assets/settings.svg";
 import { ReactComponent as Help } from "../../assets/help.svg";
 import { ReactComponent as Users } from "../../assets/users.svg";
 
-const Navbar = ({profilePic}) => {
+
+const Navbar = ({user}) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [selectedIcon, setSelectedIcon] = useState("null");
@@ -38,7 +39,7 @@ const Navbar = ({profilePic}) => {
 
   return (
     <div>
-      <div className="sm:flex flex-col min-w-32 h-screen bg-med-red justify-between items-center fixed top-0 left-0 hidden">
+      <div className="sm:flex flex-col min-w-32 max-w-32 h-screen bg-med-red justify-between items-center fixed top-0 left-0 hidden">
         <div className="flex flex-col justify-center items-center w-full p-2 space-y-4">
           <HomeIcon
             className={`nav-bar-btn rounded-3xl bg-gray-200 hover:fill-white active:fill-white ${
@@ -67,9 +68,13 @@ const Navbar = ({profilePic}) => {
             onClick={() => handleIconClick("users")}
           />
         </div>
+        {user.email}
+
         <div className="flex flex-col w-fit">
+         
+          
           <img
-            src={profilePic || "https://www.hollywoodreporter.com/wp-content/uploads/2017/11/got-110-h_2017.jpg?w=1296&h=730&crop=1"}
+            src={"https://www.hollywoodreporter.com/wp-content/uploads/2017/11/got-110-h_2017.jpg?w=1296&h=730&crop=1"}
             alt="profile"
             className="w-24 h-24 border-gray-300 rounded-full border shadow-md"
           />

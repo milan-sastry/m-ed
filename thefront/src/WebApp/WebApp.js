@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import {useAuthState} from "react-firebase-hooks/auth";
 import {auth} from "../utils/firebase";
-import Navbar from "../Components/misc/Navbar";
+import Navbar from "../oldComponents/misc/Navbar";
 
 
 
@@ -16,7 +16,7 @@ function WebApp() {
 
   return (
     <div className="flex h-screen max-w-screen">
-      <Navbar />
+      <Navbar user={user}/>
       <Outlet />
     </div>
       

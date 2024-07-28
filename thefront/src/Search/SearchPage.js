@@ -1,10 +1,10 @@
-import SearchBar from "../Components/Search/SearchBar";
+import SearchBar from "../oldComponents/Search/SearchBar";
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import FilterPage from "../Components/Search/FilterPage";
-import MentorCard from "../Components/Search/MentorCard";
+import FilterPage from "../oldComponents/Search/FilterPage";
+import MentorCard from "../oldComponents/Search/MentorCard";
 
 function SearchPage() {
   const [mentors, setMentors] = useState([]);

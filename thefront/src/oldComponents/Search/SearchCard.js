@@ -1,6 +1,7 @@
 import { FaUserPlus } from "react-icons/fa";
 import {ReactComponent as Pin} from "../../assets/pin.svg";
 import {ReactComponent as Job} from "../../assets/industry.svg";
+import {Badge as BetterBadge} from "../../../components/ui/badge";
 import React from "react";
 import Badge from "./Badge";
 
@@ -27,6 +28,7 @@ function SearchCard({mentor}){
                     </div>
                     </div>
                 </button>
+                <BetterBadge variant="outline">hello</BetterBadge>
                 <div className="flex flex-col items-center justify-center border-black h-5/6 relative">
                     <div className=" border-black absolute -top-1.5">
                         <Badge text="Perfect Match!"></Badge>

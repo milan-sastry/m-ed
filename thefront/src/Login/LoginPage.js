@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import PasswordField  from "../Components/Onboarding/PasswordField";
-import ErrorDisplay from "../Components/misc/ErrorDisplay";
+import PasswordField  from "../oldComponents/Onboarding/PasswordField";
+import ErrorDisplay from "../oldComponents/misc/ErrorDisplay";
 import {auth} from "../utils/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';

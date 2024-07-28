@@ -1,5 +1,5 @@
-import NextBack from '../Components/Onboarding/NextBack';
-import DropdownQuestion from '../Components/Onboarding/DropdownQuestion';
+import NextBack from '../oldComponents/Onboarding/NextBack';
+import DropdownQuestion from '../oldComponents/Onboarding/DropdownQuestion';
 
 function CreateProfile({ onNextClick, onBackClick }) {
 

@@ -1,5 +1,5 @@
-import Chips from '../Components/misc/Chips';
-import NextBack from '../Components/Onboarding/NextBack';
+import Chips from '../oldComponents/misc/Chips';
+import NextBack from '../oldComponents/Onboarding/NextBack';
 
 
 function TagPage({ onBackClick, onNextClick}) {

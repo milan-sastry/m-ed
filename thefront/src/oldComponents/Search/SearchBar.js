@@ -31,7 +31,7 @@ const SearchBar = ({ callback }) => {
 
       <div className="flex border-gray-200 rounded-lg p-1 items-center text-med-blue text-lg">
         <p className="text-black whitespace-nowrap hidden sm:inline-block">Sort By:</p>
-        <select className="sm:ml-3 pt-1 pb-1 focus:outline-none border-gray-200 border rounded-lg">
+        <select className="sm:ml-3 py-2 focus:outline-none border-gray-200 border rounded-lg px-1">
           <option value="option1">Option 1</option>
           <option value="option2">Option 2</option>
           <option value="option3">Option 3</option>

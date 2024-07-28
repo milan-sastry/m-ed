@@ -2,7 +2,7 @@ import DropdownPage from "./DropdownPage";
 import CreateAccount from "./CreateAccount";
 import TagPage from "./TagPage";
 import Finish from "./Finish";
-import ProgressBar from "../Components/Onboarding/ProgressBar";
+import ProgressBar from "../oldComponents/Onboarding/ProgressBar";
 import React, { useState,useEffect } from "react";
 
 function Onboarding() {

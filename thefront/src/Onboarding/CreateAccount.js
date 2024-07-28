@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import PasswordErrorText from "../Components/Onboarding/PasswordErrorText";
+import PasswordErrorText from "../oldComponents/Onboarding/PasswordErrorText";
 import * as FormValidation from "../utils/formChecks";
-import PasswordField from "../Components/Onboarding/PasswordField";
-import ErrorDisplay from "../Components/misc/ErrorDisplay";
+import PasswordField from "../oldComponents/Onboarding/PasswordField";
+import ErrorDisplay from "../oldComponents/misc/ErrorDisplay";
 import { auth,db } from "../utils/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";

@@ -1,6 +1,8 @@
 import { FaUserPlus } from "react-icons/fa";
 import { ReactComponent as Pin } from "../../assets/pin.svg";
 import { ReactComponent as Job } from "../../assets/industry.svg";
+import {Badge as BetterBadge} from "../../components/ui/badge";
+import {Input} from "../../components/ui/input";
 import React from "react";
 import Badge from "./Badge";
 
@@ -31,11 +33,13 @@ function MentorCard({ mentor }) {
               </div>
             </div>
           </div>
+          <BetterBadge variant="custom">hello</BetterBadge>
           <button className="flex bg-med-blue text-white rounded-lg px-4 h-8 items-center justify-center space-x-2">
             <FaUserPlus></FaUserPlus>
             <strong className="hide">Connect</strong>
           </button>
         </div>
+        <Input/>
         <div className=" border-black absolute -top-3 right-1">
           <Badge text="Perfect Match!"></Badge>
         </div>
