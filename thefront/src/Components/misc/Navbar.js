@@ -7,7 +7,7 @@ import { ReactComponent as Settings } from "../../assets/settings.svg";
 import { ReactComponent as Help } from "../../assets/help.svg";
 import { ReactComponent as Users } from "../../assets/users.svg";
 
-const LargeNavbar = () => {
+const Navbar = ({profilePic}) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [selectedIcon, setSelectedIcon] = useState("null");
@@ -33,7 +33,7 @@ const LargeNavbar = () => {
   }, [location]);
 
   const handleIconClick = (iconName) => {
-    navigate("/" + iconName, { state: { selectedIcon: iconName } });
+    navigate("/webapp/" + iconName, { state: { selectedIcon: iconName } });
   };
 
   return (
@@ -69,7 +69,7 @@ const LargeNavbar = () => {
         </div>
         <div className="flex flex-col w-fit">
           <img
-            src="https://www.hollywoodreporter.com/wp-content/uploads/2017/11/got-110-h_2017.jpg?w=1296&h=730&crop=1"
+            src={profilePic || "https://www.hollywoodreporter.com/wp-content/uploads/2017/11/got-110-h_2017.jpg?w=1296&h=730&crop=1"}
             alt="profile"
             className="w-24 h-24 border-gray-300 rounded-full border shadow-md"
           />
@@ -116,4 +116,4 @@ const LargeNavbar = () => {
   );
 };
 
-export default LargeNavbar;
+export default Navbar;

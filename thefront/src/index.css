@@ -59,6 +59,9 @@
   scrollbar-gutter: stable;
 }
 
+.land-links button {
+  @apply font-semibold text-lg whitespace-nowrap hover:text-med-blue;
+}
 
 
 

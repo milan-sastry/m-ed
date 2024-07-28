@@ -21,6 +21,7 @@ def generate_username(first_name, last_name):
 @permission_classes([AllowAny])
 def check_user_exists(request):
     username = request.data.get('username')
+    print(username)
     return Response({'exists': User.objects.filter(username=username).exists()})
 
 @api_view(['POST'])

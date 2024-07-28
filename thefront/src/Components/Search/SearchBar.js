@@ -26,8 +26,18 @@ const SearchBar = ({ callback }) => {
         onClick={callback}
       >
         <FilterIcon className="w-6 h-6 fill-white" />
-        <span>Filters</span>
+        <span className="hidden sm:inline-block">Filters</span>
       </button>
+
+      <div className="flex border-gray-200 rounded-lg p-1 items-center text-med-blue text-lg">
+        <p className="text-black whitespace-nowrap hidden sm:inline-block">Sort By:</p>
+        <select className="sm:ml-3 pt-1 pb-1 focus:outline-none border-gray-200 border rounded-lg">
+          <option value="option1">Option 1</option>
+          <option value="option2">Option 2</option>
+          <option value="option3">Option 3</option>
+          {/* Add more options as needed */}
+        </select>
+      </div>
     </div>
   );
 };

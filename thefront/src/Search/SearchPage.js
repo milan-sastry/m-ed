@@ -1,5 +1,5 @@
 import SearchBar from "../Components/Search/SearchBar";
-import Navbar from "../Components/misc/Navbar";
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -25,9 +25,9 @@ function SearchPage() {
   }
 
   return (
-    <div className="flex h-screen max-w-screen">
+
     
-      <Navbar />
+
       <div
         className="flex flex-col sm:ml-32 mb-20 sm:mb-0 w-full overflow-y-scroll bg-white"
       >
@@ -42,7 +42,7 @@ function SearchPage() {
           <FilterPage show={showFilters} close={handleFilters}/>
         </div>
       </div>
-    </div>
+
   );
 }
 
