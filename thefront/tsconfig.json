@@ -16,3 +16,5 @@
     },
     "exclude": ["node_modules"]
   }
+
+  //npx shadcn-ui add --path ./src/components/ui <component>

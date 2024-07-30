@@ -15,6 +15,8 @@ const handleGoogleSignUp = async () => {
 
 }
 
+
+
 const ChooseMethod = () => {
     return (
         <div className="flex flex-col rounded-xl bg-white p-4 w-full max-w-md space-y-3 pt-6">
@@ -29,6 +31,11 @@ const ChooseMethod = () => {
                 <Mail className="w-5 h-5 absolute left-2"/>
                 <p className="whitespace-nowrap truncate">Sign up with Email</p>
             </a>
+            <a className="flex items-center border border-gray-300 rounded-xl p-1 relative w-full justify-center"
+            href="/mentor-sign-up">
+                <p className="whitespace-nowrap truncate">Sign up as a mentor</p>
+            </a>
+
             <p className="pt-4">
                 Already have an account? <a href="/login" className="text-med-blue font-bold">Login</a>
             </p>

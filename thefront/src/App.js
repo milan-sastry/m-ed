@@ -9,6 +9,7 @@ import LoginPage from './Login/LoginPage';
 import About from './Landing/About'
 import CreateAccount from './Onboarding/CreateAccount';
 import WebApp from './WebApp/WebApp';
+import CreateMentor from './Onboarding/CreateMentor';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/email-sign-up" element={<CreateAccount />} />
+        <Route path="/mentor-sign-up" element={<CreateMentor />} />
         <Route path='/webapp' element={<WebApp />} >
           <Route path="search" element={<SearchPage />} />
           <Route path="message" element={<MessagePage />} />

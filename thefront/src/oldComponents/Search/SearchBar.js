@@ -1,5 +1,12 @@
 import { ReactComponent as FilterIcon } from "../../assets/filter.svg";
 import { ReactComponent as SearchIcon } from "../../assets/search.svg";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../../components/ui/select";
 
 const SearchBar = ({ callback }) => {
   return (
@@ -29,15 +36,24 @@ const SearchBar = ({ callback }) => {
         <span className="hidden sm:inline-block">Filters</span>
       </button>
 
-      <div className="flex border-gray-200 rounded-lg p-1 items-center text-med-blue text-lg">
+      {/*       <div className="flex border-gray-200 rounded-lg p-1 items-center text-med-blue text-lg">
         <p className="text-black whitespace-nowrap hidden sm:inline-block">Sort By:</p>
         <select className="sm:ml-3 py-2 focus:outline-none border-gray-200 border rounded-lg px-1">
           <option value="option1">Option 1</option>
           <option value="option2">Option 2</option>
           <option value="option3">Option 3</option>
-          {/* Add more options as needed */}
         </select>
-      </div>
+      </div> */}
+      <Select>
+        <SelectTrigger className="w-[180px]">
+          <SelectValue placeholder="Sort By" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="ascending">Ascending</SelectItem>
+          <SelectItem value="descending">Descending</SelectItem>
+          <SelectItem value="recommended">Reccomended</SelectItem>
+        </SelectContent>
+      </Select>
     </div>
   );
 };

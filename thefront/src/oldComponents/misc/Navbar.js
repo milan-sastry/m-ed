@@ -74,8 +74,8 @@ const Navbar = ({user}) => {
          
           
           <img
-            src={"https://www.hollywoodreporter.com/wp-content/uploads/2017/11/got-110-h_2017.jpg?w=1296&h=730&crop=1"}
-            alt="profile"
+            src={user.photoURL}
+            alt={user.displayName}
             className="w-24 h-24 border-gray-300 rounded-full border shadow-md"
           />
           <div className="flex justify-between w-full pt-4 pb-4">

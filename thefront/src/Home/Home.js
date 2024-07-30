@@ -1,10 +1,11 @@
 import React from 'react';
+import HowToNetwork from './HowToNetwork';
 
 const Home = () => {
     return (
       
-            <div className='sm:ml-32 flex items-center justify-center w-full h-screen border-purple-500 border bg-green-300'>
-                <h1>Welcome to the Home page!</h1>
+            <div className='sm:ml-32 flex justify-center w-full h-screen py-4'>
+                <HowToNetwork />
             </div>
 
     );
