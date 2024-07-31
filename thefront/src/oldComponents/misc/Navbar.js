@@ -5,7 +5,7 @@ import { ReactComponent as SearchIcon } from "../../assets/search.svg";
 import { ReactComponent as TextIcon } from "../../assets/text.svg";
 import { ReactComponent as Settings } from "../../assets/settings.svg";
 import { ReactComponent as Help } from "../../assets/help.svg";
-import { ReactComponent as Users } from "../../assets/users.svg";
+//import { ReactComponent as Users } from "../../assets/users.svg";
 
 
 const Navbar = ({user}) => {
@@ -61,22 +61,20 @@ const Navbar = ({user}) => {
             }`}
             onClick={() => handleIconClick("message")}
           />
-          <Users
+         {/*  <Users
             className={`nav-bar-btn rounded-3xl bg-gray-200 hover:fill-white active:fill-white ${
               selectedIcon === "users" ? "bg-med-blue fill-white rounded-xl" : ""
             }`}
             onClick={() => handleIconClick("users")}
-          />
+          /> */}
         </div>
-        {user.email}
+        {/* {user.email} */}
 
         <div className="flex flex-col w-fit">
-         
-          
           <img
-            src={user.photoURL}
+            src="/whiteLogo.png"
             alt={user.displayName}
-            className="w-24 h-24 border-gray-300 rounded-full border shadow-md"
+            className="w-24 h-24 border-gray-300 rounded-full border shadow-md bg-med-blue"
           />
           <div className="flex justify-between w-full pt-4 pb-4">
             <Settings className="hover:bg-med-blue bg-slate-200 rounded-full w-10 h-10 p-2" />
@@ -106,12 +104,12 @@ const Navbar = ({user}) => {
             }`}
             onClick={() => handleIconClick("message")}
           />
-          <Users
+   {/*        <Users
             className={`mobile-nav-btn rounded-3xl ${
               selectedIcon === "users" ? "bg-med-blue fill-white rounded-xl" : ""
             }`}
             onClick={() => handleIconClick("users")}
-          />
+          /> */}
 
 
       </div>

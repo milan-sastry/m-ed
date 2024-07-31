@@ -1,7 +1,9 @@
 function Land() {
-  return (<div className="pt-24">
+  return (
+  <div>
     <h1>Land</h1>
-  </div>);
+  </div>
+  );
 }
 
 export default Land;
