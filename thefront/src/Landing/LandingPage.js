@@ -4,11 +4,12 @@ import About from "./About";
 import Contact from "./Contact";
 import Land from "./Land";
 import { useEffect } from "react";
+import {motion} from 'framer-motion';
 
 function LandingPage() {
   useEffect(() => {
     const originalBackgroundColor = document.body.style.backgroundColor;
-    document.body.style.backgroundColor = 'rgba(188, 57, 46, 0.2)';
+    document.body.style.backgroundColor = 'rgba(188, 57, 46, 0.1)';
     
     return () => {
         document.body.style.backgroundColor = originalBackgroundColor;
@@ -23,7 +24,7 @@ function LandingPage() {
 
   const Navbar = () => {
     return (
-      <div className="flex top-4 h-24 mt-6 sm:mx-8 mx-4 bg-white p-4 px-6 sm:px-8 border-b border-gray-300 justify-between drop-shadow-xl rounded-xl">
+      <div className="flex h-24 top-0 w-full max-w-screen-2xl sm:mx-8 mx-4 p-4 px-6 sm:px-8 justify-between border-gray-100">
         <div className="flex">
           <img
             src="redLogoText.png"
@@ -55,13 +56,14 @@ function LandingPage() {
         </div>
         
         <div className="flex items-center">
-          <a
+          <motion.button
             href="/login"
-            className="font-semibold text-white text-lg whitespace-nowrap p-1 px-4 rounded-2xl bg-med-red
-                         shadow-2xl hover:brightness-90 transition duration-200 ease-in-out flex items-center h-fit"
+            className="font-semibold text-white text-lg whitespace-nowrap p-1 px-4 rounded-2xl bg-med-blue
+                         shadow-2xl flex items-center h-fit"
+            whileHover={{ scale: 1.1 }}
           >
             Login
-          </a>
+          </motion.button>
         </div>
       </div>
     );
@@ -78,11 +80,9 @@ function LandingPage() {
   };
 
   return (
-    <div className="flex flex-col w-screen h-full min-h-screen">
-      <Navbar />
-      <div className="flex-grow border-black max-w-full">
+    <div className="flex flex-col w-screen min-h-screen items-center">
+        <Navbar />
         <SelectedItem />
-      </div>
     </div>
   );
 }

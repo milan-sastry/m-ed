@@ -17,6 +17,10 @@ module.exports = {
       },
     },
     extend: {
+      backgroundImage: {
+        'med-gradient' : 'linear-gradient(to bottom, #9C3A37 0%, #DB514D 100%)',
+
+      },
       colors:{
         'med-red': '#BC392E',
         'med-blue' : '#008B8B',
